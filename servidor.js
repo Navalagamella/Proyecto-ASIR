@@ -27,7 +27,6 @@ var app = express()
         //Activamos las rutas
         app.use(router);
 
-
 //Indicar por que puerto escuchará la aplicación ( en este caso express).
 // http://expressjs.com/es/api.html#app.listen
 app.listen(3000, function () {
@@ -35,3 +34,7 @@ app.listen(3000, function () {
   console.log('Ejecutando Servidor Web en el puerto 3000');
   console.log('-----------------------------------------');
 });
+
+
+//Importamos la conexion con la BD
+const DB = require('./configuracion/db.js');
