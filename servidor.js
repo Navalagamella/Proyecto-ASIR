@@ -6,6 +6,15 @@
 const express = require('express');
 var app = express()
 
+//Body-Parser
+//https://github.com/expressjs/body-parser
+const bodyParser = require('body-parser');
+const bodyParserJSON = bodyParser.json();
+const bodyParserURLEncoded = bodyParser.urlencoded({extended: true});
+//Activamos body-parser
+app.use(bodyParserJSON);
+app.use(bodyParserURLEncoded);
+
 //Creamos las rutas de nuestro servidor web.
 //Importar las rutas del servidor web empezamos en /
 //  todo esto está en la documentacion de express, puede variar con la version
@@ -26,6 +35,7 @@ var app = express()
 
         //Activamos las rutas
         app.use(router);
+        loginRutas(router);
 
 //Indicar por que puerto escuchará la aplicación ( en este caso express).
 // http://expressjs.com/es/api.html#app.listen

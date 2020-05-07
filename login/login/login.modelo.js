@@ -31,11 +31,8 @@ const mongoose = require('mongoose');
             timestamps: true
             });
 
-//Asociamos el esquema a un modelo
-//https://mongoosejs.com/docs/api.html#mongoose_Mongoose-Model
-//https://mongoosejs.com/docs/api.html#model_Model
-var loginUsuario = mongoose.model('loginUsuarios', loginUsuarios_Esquema);
+
 //Lo exportamos
-module.exports = loginUsuario;
-//A partir de ahora tenemos el modelo de loginUsuarios que tendrá las propiedades que le hemos indicado anteriormente.
+module.exports = loginUsuarios_Esquema;
+//A partir de ahora tenemos el esquema de loginUsuarios que tendrá las propiedades que le hemos indicado anteriormente.
 //tenemos que ir a ./login.controlador.js que es donde haremos uso de este modelo.
