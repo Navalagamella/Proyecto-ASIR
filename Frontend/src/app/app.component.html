@@ -1,0 +1,16 @@
+<!-- Aqui es donde ponemos todo el codigo que se va a compartir en toda la pagina web
+ -->
+ <div>
+  <header class="cabecera">
+    <nav>
+ <!-- Para que funcione la navegacion de angular debemos cambiar los
+       href por routerLink -->
+      <a routerLink="/"><strong>HOME</strong></a> |
+      <a routerLink="/registro">Registrarse</a> |
+      <a routerLink="/login">Entrar</a> |
+      <a routerLink="/privado"><strong>PRIVADO</strong></a>
+    </nav>
+  </header>
+
+ <!-- No borrar -->
+<router-outlet></router-outlet>
