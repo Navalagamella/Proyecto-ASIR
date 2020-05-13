@@ -7,14 +7,16 @@
   <div class="login-triangle"></div>
 
   <h2 class="login-header">Registro</h2>
-
-  <form class="login-container">
+  <!-- En el formulario indicamos que al enviar este formulario,
+      se envie los datos a una funcion que estará dentro de
+        registro.component.ts -->
+  <form class="login-container" (submit)="registrarse()">
     <p>Indica tu Nombre:</p>
-    <p><input type="text" placeholder="Nombre"></p>
+    <p><input type="text" placeholder="Nombre" [(ngModel)]="usuario.nombre" name="nombre" required></p>
     <p>Indica el email con el que iniciar sesión:</p>
-    <p><input type="email" placeholder="Email"></p>
+    <p><input type="email" placeholder="Email" [(ngModel)]="usuario.email" name="email" required></p>
     <p>Introduce una contraseña:</p>
-    <p><input type="password" placeholder="Password"></p>
+    <p><input type="password" placeholder="Password" [(ngModel)]="usuario.password" name="password" required></p>
     <p><input type="submit" value="Registrarse"></p>
   </form>
 </div>

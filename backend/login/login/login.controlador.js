@@ -27,7 +27,7 @@ exports.crearUsuario = (req, res, next) => {
   const nuevoUsuario = {
     nombre: req.body.nombre,
     email: req.body.email,
-    password: req.body.password
+    password: bcrypt.hashSync(req.body.password)
   }
         //Crea el nuevo usuario en la base de datos.
         //Al intentar crear el nuevo usuario tendremos dos opciones, o un error o un usuario nuevo
@@ -42,7 +42,7 @@ exports.crearUsuario = (req, res, next) => {
             //Documentacion de jsonwebtoken: https://www.npmjs.com/package/jsonwebtoken
             //Synchronous Sign with default (HMAC SHA256)
             //Aqui utilizamos la llave secreta que encripta.
-            const accessToken = jwt.sign({id:usuario.id},SECRET_KEY,{expiresIn: expiresIn});
+            const accessToken = jwt.sign({_id:usuario._id},SECRET_KEY,{expiresIn: expiresIn});
             //Guardamos los datos del nuevo usuario
             const datosUsuario = {
               nombre: usuario.nombre,
@@ -52,7 +52,7 @@ exports.crearUsuario = (req, res, next) => {
             }
 
             //Respuesta al frontend
-            res.send({datosUsuario});
+            return res.send({datosUsuario});
           });
 }
 
@@ -74,16 +74,20 @@ loginUsuarios.findOne({email:datosUsuario.email}, (err, usuario)=> {
   else {
       //cuando encuentre un usuario, guardará la contraseña y la comparara con la BD
       //Guardamos la contraseña para encriptarla
-      var resulPassword = datosUsuario.password;
+      var resulPassword = bcrypt.compareSync(datosUsuario.password, usuario.password);
       //Si la contraseña es correcta volvemos a crear un expiresIn
       if (resulPassword){
         const expiresIn = 24*3200;
         const accessToken = jwt.sign({id:usuario.id},SECRET_KEY,{expiresIn: expiresIn});
+        const datosUsuario = {
+          accessToken: accessToken,
+          expiresIn: expiresIn
+        }
     //Respuesta al frontend
-    res.send({datosUsuario})}
+    return res.send({datosUsuario})}
     else {
       //en caso de que la contraseña sea incorrecta
-      res.status(409).sebd({message: 'Algo falla'});}
+      res.status(409).send({message: 'contraseña incorrecta'});}
     }
   });
 }

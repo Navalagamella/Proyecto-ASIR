@@ -24,8 +24,9 @@ const routes: Routes = [
   {
     //Cuando cargue la ruta /login
     path: 'login',
-    //Renderiza el componente LoginComponente
-    component: LoginComponent
+    //Renderiza el componente LoginComponent
+    component: LoginComponent,
+    pathMatch: 'full'
   },
   // /registro
   {
