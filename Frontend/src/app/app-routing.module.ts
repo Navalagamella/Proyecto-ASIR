@@ -9,6 +9,8 @@ import { LoginComponent } from "./componentes/login/login.component";
 import { RegistroComponent } from "./componentes/registro/registro.component";
 import { PublicoComponent } from "./componentes/publico/publico.component";
 import { PrivadoComponent } from "./componentes/privado/privado.component";
+//Importamos el guard para proteger la ruta /privado
+import { AutorizacionGuard } from './autorizacion.guard';
 
 //creamos los objetos para los componentes que hemos importado
 const routes: Routes = [
@@ -39,9 +41,13 @@ const routes: Routes = [
     component: PublicoComponent
   },
   // /privado
+  // establecemos que esta ruta deberá ser privada y solo accesible
+  // a todos aquellos que esten logueados (que tengan un token)
   {
     path: 'privado',
-    component: PrivadoComponent
+    component: PrivadoComponent,
+    pathMatch: 'full',
+    canActivate: [AutorizacionGuard]
   }
 
 ];

@@ -17,7 +17,8 @@ import { PrivadoComponent } from './componentes/privado/privado.component';
 //Importamos los modulos necesarios para la aplicacion
 import { FormsModule } from "@angular/forms";
 
-
+//Importamos el guard para proteger la ruta /privado
+import { AutorizacionGuard } from './autorizacion.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { FormsModule } from "@angular/forms";
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ AutorizacionGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
