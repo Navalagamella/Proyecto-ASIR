@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from "../../servicios/login.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-registro',
@@ -16,7 +17,9 @@ export class RegistroComponent implements OnInit {
     accessToken: ''
   }
 
-  constructor(private LoginService: LoginService) { }
+  constructor(
+    private LoginService: LoginService,
+      private router: Router) { }
 
   ngOnInit(): void {
   }
