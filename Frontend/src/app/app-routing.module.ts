@@ -33,7 +33,8 @@ const routes: Routes = [
   // /registro
   {
     path: 'registro',
-    component: RegistroComponent
+    component: RegistroComponent,
+    pathMatch: 'full'
   },
   // /publico
   {

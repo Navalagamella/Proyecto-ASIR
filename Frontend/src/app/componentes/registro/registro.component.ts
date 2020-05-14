@@ -30,6 +30,7 @@ export class RegistroComponent implements OnInit {
     this.LoginService.Registro(this.usuario)
       .subscribe(
           res => {
+            this.router.navigate(['/privado']);
             console.log(res)
           },
           err => console.log(err)
