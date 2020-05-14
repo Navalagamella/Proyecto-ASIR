@@ -1,0 +1,21 @@
+<!-- Introducimos el cuerpo de nuestra página login -->
+<!-- Obtenida de https://codepen.io/miroot/pen/qwIgC -->
+<!-- Creador: @miroot https://codepen.io/miroot -->
+
+<div class="login">
+  <div class="login-triangle"></div>
+
+  <h2 class="login-header">Log in</h2>
+
+<!-- En el formulario indicamos que al enviar este formulario,
+    se envie los datos a una funcion que estará dentro de
+      login.component.ts -->
+  <form class="login-container" (submit)='logearse()'>
+    <!-- con el atributo ngModel lo que hacemos es traducir los datos y almacenarlos
+        como si fuese un array de un objeto. Es un módulo que deberemos importar en nuestro
+        archivo de proyecto principal. -->
+    <p><input type="email" placeholder="Email" [(ngModel)]="usuario.email" name="email" required></p>
+    <p><input type="password" placeholder="Password" [(ngModel)]="usuario.password" name="password" required></p>
+    <p><input type="submit" value="Log in"></p>
+  </form>
+</div>

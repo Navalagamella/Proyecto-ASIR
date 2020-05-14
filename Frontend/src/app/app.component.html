@@ -1,0 +1,24 @@
+<!-- Aqui es donde ponemos todo el codigo que se va a compartir en toda la pagina web
+ -->
+ <div>
+  <header class="cabecera">
+    <nav>
+ <!-- Para que funcione la navegacion de angular debemos cambiar los
+       href por routerLink -->
+      <a routerLink="/"><strong>HOME</strong></a>
+      <ng-container *ngIf="!loginService.mantenidoLogueado(); else desconectarse">
+      <a routerLink="/registro">Registrarse</a>
+        <a routerLink="/login">Entrar</a>
+      </ng-container>
+        <a routerLink="/privado"><strong>PRIVADO</strong></a>
+  <!-- Para guardar este template en una variable que vamos a montrar en el condicional
+        IF de arriba se indica con #desconectarse-->
+      <ng-template #desconectarse>
+        <a (click)="loginService.desconexion()">DESCONECTARSE</a>
+        </ng-template>
+    </nav>
+  </header>
+</div>
+
+ <!-- No borrar -->
+<router-outlet></router-outlet>

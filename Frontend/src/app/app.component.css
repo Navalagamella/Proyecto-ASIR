@@ -1,0 +1,10 @@
+/* Aqui es donde ponemos todo el codigo que se va a compartir en toda la pagina web
+ */
+
+ /* Aqui va el codigo que es del nav */
+
+ .cabecera { text-align: center; background-color: #FEDF9E; margin: 5%; }
+
+ nav a { padding: 1em; color: black; display: inline-block; margin: auto; text-decoration: none; }
+ nav a:first-child { font-size: 18px; margin: 0 1em 0 0; }
+ nav a:last-child {font-size: 18px; margin: 0 0 0 1em; }
