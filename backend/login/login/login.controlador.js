@@ -74,6 +74,7 @@ loginUsuarios.findOne({email:datosUsuario.email}, (err, usuario)=> {
   else {
       //cuando encuentre un usuario, guardará la contraseña y la comparara con la BD
       //Guardamos la contraseña para encriptarla
+      //Devuelve true o false y es lo que utilizamos en el siguiente if
       var resulPassword = bcrypt.compareSync(datosUsuario.password, usuario.password);
       //Si la contraseña es correcta volvemos a crear un expiresIn
       if (resulPassword){

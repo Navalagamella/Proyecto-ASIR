@@ -29,8 +29,11 @@ app.use(express.json());
   //https://expressjs.com/es/api.html#router
   var router = express.Router();
 
-  //Importamos las rutas de ./login/login.rutas.js
-  const loginRutas = require('./login/login.rutas.js');
+  //Importamos las rutas de ./login/login/login.rutas.js
+  const loginRutas = require('./login/login/login.rutas.js');
+
+  //Importamos las rutas de ./app/app.rutas.js
+  const appRutas = require('./app/app.rutas.js');
 
   //Creamos la ruta por defecto que es /
   //https://expressjs.com/es/api.html#router.METHOD
@@ -41,6 +44,7 @@ app.use(express.json());
         //Activamos las rutas
         app.use(router);
         loginRutas(router);
+        appRutas(router);
 
 //Indicar por que puerto escuchará la aplicación ( en este caso express).
 // http://expressjs.com/es/api.html#app.listen
