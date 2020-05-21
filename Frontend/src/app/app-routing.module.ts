@@ -10,6 +10,7 @@ import { RegistroComponent } from "./componentes/registro/registro.component";
 import { PublicoComponent } from "./componentes/publico/publico.component";
 import { PrivadoComponent } from "./componentes/privado/privado.component";
 import { TodolistComponent } from "./componentes/todolist/todolist.component";
+import { MistodolistComponent } from "./componentes/mistodolist/mistodolist.component";
 //Importamos el guard para proteger la ruta /privado
 import { AutorizacionGuard } from './autorizacion.guard';
 
@@ -56,7 +57,13 @@ const routes: Routes = [
     path: 'privado/consulta',
     component: TodolistComponent,
     canActivate: [AutorizacionGuard]
-  }
+  },
+    // /privado/consulta/usuario
+  {
+    path: 'privado/consulta/:grupo_id',
+      component: MistodolistComponent,
+      canActivate: [AutorizacionGuard]
+  },
 
 ];
 

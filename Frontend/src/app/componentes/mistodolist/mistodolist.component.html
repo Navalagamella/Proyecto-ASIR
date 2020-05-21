@@ -1,0 +1,33 @@
+<div class="container">
+  
+    <div class="login">
+      <div class="login-triangle"></div>
+    
+      <h2 class="login-header">Mis Tareas</h2>
+      <!-- Mensaje que aparece cuando no hay datos -->
+        <p *ngIf="TodoObjeto.length <= 0" >¡Nada en la lista!</p> 
+     
+        <!-- Lista de objetos  -->
+        <table class="login-container" *ngIf="TodoObjeto.length > 0">
+          <thead>
+            <tr>
+              <th>Grupo</th>
+              <th>Nombre</th>
+              <th>Contenido</th>
+              <th>Completado</th>
+              <th>Publico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let objeto of TodoObjeto; let i = index">
+              <td>{{objeto.grupo_id}}</td>
+              <td>{{objeto.autor}}</td>
+              <td>{{objeto.contenido}}</td>
+              <td>{{objeto.completado}}</td>
+              <td>{{objeto.publico}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>  

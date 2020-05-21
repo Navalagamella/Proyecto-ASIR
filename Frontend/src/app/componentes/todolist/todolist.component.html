@@ -1,9 +1,14 @@
 <div class="container">
-    <!-- Mensaje que aparece cuando no hay datos -->
-    <p *ngIf="TodoObjeto.length <= 0" >Nada en la lista!</p> 
+  
+<div class="login">
+  <div class="login-triangle"></div>
+
+  <h2 class="login-header">Consultar</h2>
+  <!-- Mensaje que aparece cuando no hay datos -->
+    <p *ngIf="TodoObjeto.length <= 0" >¡Nada en la lista!</p> 
  
     <!-- Lista de objetos  -->
-    <table *ngIf="TodoObjeto.length > 0">
+    <table class="login-container" *ngIf="TodoObjeto.length > 0">
       <thead>
         <tr>
           <th>Grupo</th>
@@ -24,3 +29,5 @@
       </tbody>
     </table>
   </div>
+  
+</div>  

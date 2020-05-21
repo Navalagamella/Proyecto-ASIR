@@ -9,14 +9,18 @@ import { TodoObjetoI } from '../interfaces/todo-objeto';
 })
 
 export class TodolistService {
+  
+  private miGrupo_id = sessionStorage.getItem("GRUPO_ID")
 
   private URL = 'http://localhost:3000/privado/tareas/consulta'
 
   constructor(private http: HttpClient) {}
 
   consultar() {
-    return this.http.get(this.URL);
- 
+    return this.http.get(this.URL)
+  }
 
+  consultarSolo() {
+    return this.http.get(this.URL + '/' + this.miGrupo_id )
   }
 }

@@ -12,5 +12,6 @@ var router = express.Router();
 module.exports = (router) => {
   router.post('/privado/tareas/anadir', todo.anadir);
   router.get('/privado/tareas/consulta', todo.obtener);
-  //router.post('/privado/tareas/consulta/:nombre', todo.obtener);
+  //con los : indicamos que entra con un parametro a la ruta indicada, que filtraremos para obtener los de un usuario solo
+  router.get('/privado/tareas/consulta/:grupo_id', todo.obtenerSolo);
 };

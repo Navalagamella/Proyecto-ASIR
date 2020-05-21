@@ -31,5 +31,17 @@ exports.obtener = (req, res) => {
       //Respuesta al frontend que haremos mediante un json
       return res.json( todoObjeto )
     };
-  })
+  });
+}
+
+//Obtener solo los registros de todo list de un usuario
+
+exports.obtenerSolo = (req, res, next) => {
+  todoList.obtener({grupo_id: req.params.grupo_id}, (err, todoObjeto) => {
+    if (!todoObjeto) {res.status(409).send({ message: 'Algo falla... ¿no usuario?'})}
+    else {
+      //Respuesta al frontend que haremos mediante un json
+      return res.json( todoObjeto )
+    };
+  });
 }

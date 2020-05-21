@@ -33,7 +33,7 @@ export class LoginService {
         (res: JwtRespuestaI) => {
           if (res) {
             // guardar token
-            this.guardarToken(res.datosUsuario.accessToken, res.datosUsuario.expiresIn);
+            this.guardarToken(res.datosUsuario.accessToken, res.datosUsuario.expiresIn, res.datosUsuario.email);
           }
         })
       );
@@ -49,7 +49,7 @@ export class LoginService {
         (res: JwtRespuestaI) => {
           if (res) {
             // guardar token
-            this.guardarToken(res.datosUsuario.accessToken, res.datosUsuario.expiresIn);
+            this.guardarToken(res.datosUsuario.accessToken, res.datosUsuario.expiresIn, res.datosUsuario.email);
           }
         })
       );
@@ -67,16 +67,24 @@ export class LoginService {
   desconexion() {
     sessionStorage.removeItem('ACCESS_TOKEN');
     sessionStorage.removeItem('EXPIRES_IN');
+    sessionStorage.removeItem("GRUPO_ID");
     this.router.navigate(['/login']);
   }
 
-  private guardarToken(token: string, expiresIn: string): void {
+  private guardarToken(token: string, expiresIn: string, grupo_id: string): void {
    sessionStorage.setItem("ACCESS_TOKEN", token);
    sessionStorage.setItem("EXPIRES_IN", expiresIn);
+   sessionStorage.setItem("GRUPO_ID", grupo_id);
    this.token = token;
     }
 
   private getToken() {
    if (!this.token) {this.token = sessionStorage.getItem("ACCESS_TOKEN");}
    }
+
+  misTareas() {
+    const grupo_id = sessionStorage.getItem("GRUPO_ID");
+
+    this.router.navigate(['/privado/consulta/' + grupo_id]);
+  }
 }

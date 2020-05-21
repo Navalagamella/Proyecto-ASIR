@@ -20,6 +20,7 @@ import { FormsModule } from "@angular/forms";
 //Importamos el guard para proteger la ruta /privado
 import { AutorizacionGuard } from './autorizacion.guard';
 import { TodolistComponent } from './componentes/todolist/todolist.component';
+import { MistodolistComponent } from './componentes/mistodolist/mistodolist.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TodolistComponent } from './componentes/todolist/todolist.component';
     RegistroComponent,
     PublicoComponent,
     PrivadoComponent,
-    TodolistComponent
+    TodolistComponent,
+    MistodolistComponent
   ],
   imports: [
     BrowserModule,

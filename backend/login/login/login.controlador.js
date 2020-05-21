@@ -82,7 +82,8 @@ loginUsuarios.findOne({email:datosUsuario.email}, (err, usuario)=> {
         const accessToken = jwt.sign({id:usuario.id},SECRET_KEY,{expiresIn: expiresIn});
         const datosUsuario = {
           accessToken: accessToken,
-          expiresIn: expiresIn
+          expiresIn: expiresIn,
+          email: req.body.email
         }
     //Respuesta al frontend
     return res.send({datosUsuario})}
