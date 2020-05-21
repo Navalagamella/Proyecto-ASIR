@@ -9,9 +9,9 @@ const todoList_Esquema = require('./app.modelo.js');
      const todoObjeto = new this(data)
      todoObjeto.save(cb);
    },
-   //obtener: function (query, cb) {
-    // this.find(query, cb);
-  // },
+   obtener: function (query, cb) {
+     this.find(query, cb);
+   },
    borrar: function (query, cb) {
      this.find(query, cb);
    }

@@ -8,9 +8,12 @@ const mongoose = require('mongoose');
     //https://mongoosejs.com/docs/api.html#mongoose_Mongoose-Schema
     var Schema = mongoose.Schema;
 
-          //La forma con la que se accede es por e-mail, es por ello que debe ser única en BD.
           var todoList_Esquema = new Schema({
             grupo_id: {
+              type: String,
+              required: true
+            },
+            autor: {
               type: String,
               required: true
             },
@@ -20,11 +23,13 @@ const mongoose = require('mongoose');
             completado: {
               type: Boolean,
               default: false
+            },
+            publico: {
+              type: Boolean,
+              default: false
             }
           });
 
 
 //Lo exportamos
 module.exports = todoList_Esquema;
-//A partir de ahora tenemos el esquema de loginUsuarios que tendrá las propiedades que le hemos indicado anteriormente.
-//tenemos que ir a ./login.controlador.js que es donde haremos uso de este modelo.

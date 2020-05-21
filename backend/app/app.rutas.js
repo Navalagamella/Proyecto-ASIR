@@ -11,5 +11,6 @@ var router = express.Router();
 
 module.exports = (router) => {
   router.post('/privado/tareas/anadir', todo.anadir);
-  router.post('/privado/tareas/consulta', todo.obtener);
+  router.get('/privado/tareas/consulta', todo.obtener);
+  //router.post('/privado/tareas/consulta/:nombre', todo.obtener);
 };

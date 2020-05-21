@@ -1,2 +1,6 @@
 backend/node_modules/
 backend/package-lock.json
+Frontend/e2e/
+Frontend/node_modules/
+.Frontend
+.backend

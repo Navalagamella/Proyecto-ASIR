@@ -56,27 +56,27 @@ export class LoginService {
   }
 
   //Comprobar que el usuario esta logueado
-  //esto se comprueba simplemente si tiene un token en el localStorage
+  //esto se comprueba simplemente si tiene un token en el sessionStorage
   //esto es importado en autorizacion.guard
   mantenidoLogueado() {
-    if (localStorage.getItem('ACCESS_TOKEN')) { return true }
+    if (sessionStorage.getItem('ACCESS_TOKEN')) { return true }
   }
 
   //Desconectar al usuario
-  //Lo que hacemos es quitarle el token de la localStorage
+  //Lo que hacemos es quitarle el token de la sessionStorage
   desconexion() {
-    localStorage.removeItem('ACCESS_TOKEN');
-    localStorage.removeItem('EXPIRES_IN');
+    sessionStorage.removeItem('ACCESS_TOKEN');
+    sessionStorage.removeItem('EXPIRES_IN');
     this.router.navigate(['/login']);
   }
 
   private guardarToken(token: string, expiresIn: string): void {
-   localStorage.setItem("ACCESS_TOKEN", token);
-   localStorage.setItem("EXPIRES_IN", expiresIn);
+   sessionStorage.setItem("ACCESS_TOKEN", token);
+   sessionStorage.setItem("EXPIRES_IN", expiresIn);
    this.token = token;
     }
 
   private getToken() {
-   if (!this.token) {this.token = localStorage.getItem("ACCESS_TOKEN");}
+   if (!this.token) {this.token = sessionStorage.getItem("ACCESS_TOKEN");}
    }
 }
