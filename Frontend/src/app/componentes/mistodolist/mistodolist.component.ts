@@ -14,13 +14,12 @@ export class MistodolistComponent implements OnInit {
 
   constructor( private todolistService: TodolistService) {this.obtenerObjetos();}
 
-  ngOnInit(): void {
-  }
+  ngOnInit() { }
 
   obtenerObjetos(){
     this.todolistService.consultarSolo().subscribe((data) => {
       this.TodoObjeto = data;
-      console.log(this.TodoObjeto);
+      //console.log(this.TodoObjeto);
     } )
   }
 
