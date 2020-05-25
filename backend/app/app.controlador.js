@@ -10,7 +10,8 @@ exports.anadir = (req, res, next) => {
   const nuevoObjeto = {
     grupo_id: req.body.grupo_id,
     contenido: req.body.contenido,
-    autor: req.body.autor
+    autor: req.body.autor,
+    publico: req.body.publico
   };
 
   //Ahora llamamos a la funcion para añadir el nuevo objeto.
@@ -19,13 +20,24 @@ exports.anadir = (req, res, next) => {
   todoList.anadir(nuevoObjeto, (err, todoObjeto)=> {
     //si aparece un error
     if (err) res.json({error: err});
-    res.json({ mensaje: 'Objeto añadido'});
+    res.json({todoObjeto});
   });
 }
 
 //Obtener todos los registros de la todo list
+//exports.obtener = (req, res) => {
+//  todoList.obtener({}, (err, todoObjeto) => {
+//    if (!todoObjeto) {res.status(409).send({ message: 'Algo falla... ¿no usuario?'})}
+//    else {
+//      //Respuesta al frontend que haremos mediante un json
+//      return res.json( todoObjeto )
+//   };
+//  });
+//}
+
+//Obtenemos solo los datos que sean publicos de otros usuarios.
 exports.obtener = (req, res) => {
-  todoList.obtener({}, (err, todoObjeto) => {
+  todoList.obtener({publico:true, grupo_id:{$ne: req.params.grupo_id}}, (err, todoObjeto) => {
     if (!todoObjeto) {res.status(409).send({ message: 'Algo falla... ¿no usuario?'})}
     else {
       //Respuesta al frontend que haremos mediante un json
@@ -33,6 +45,7 @@ exports.obtener = (req, res) => {
     };
   });
 }
+
 
 //Obtener solo los registros de todo list de un usuario
 

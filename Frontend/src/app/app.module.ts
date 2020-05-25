@@ -21,6 +21,7 @@ import { FormsModule } from "@angular/forms";
 import { AutorizacionGuard } from './autorizacion.guard';
 import { TodolistComponent } from './componentes/todolist/todolist.component';
 import { MistodolistComponent } from './componentes/mistodolist/mistodolist.component';
+import { AnadirComponent } from './componentes/anadir/anadir.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MistodolistComponent } from './componentes/mistodolist/mistodolist.comp
     PublicoComponent,
     PrivadoComponent,
     TodolistComponent,
-    MistodolistComponent
+    MistodolistComponent,
+    AnadirComponent
   ],
   imports: [
     BrowserModule,

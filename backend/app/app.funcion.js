@@ -6,7 +6,8 @@ const todoList_Esquema = require('./app.modelo.js');
 //creamos los metodos de registro de dato, lectura y borrado
  todoList_Esquema.statics = {
    anadir: function (data, cb) {
-     const todoObjeto = new this(data)
+     const todoObjeto = new this(data);
+     //console.log(todoObjeto);
      todoObjeto.save(cb);
    },
    obtener: function (query, cb) {

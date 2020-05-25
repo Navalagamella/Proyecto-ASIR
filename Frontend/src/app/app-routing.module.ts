@@ -11,6 +11,8 @@ import { PublicoComponent } from "./componentes/publico/publico.component";
 import { PrivadoComponent } from "./componentes/privado/privado.component";
 import { TodolistComponent } from "./componentes/todolist/todolist.component";
 import { MistodolistComponent } from "./componentes/mistodolist/mistodolist.component";
+import { AnadirComponent } from "./componentes/anadir/anadir.component";
+
 //Importamos el guard para proteger la ruta /privado
 import { AutorizacionGuard } from './autorizacion.guard';
 
@@ -59,11 +61,17 @@ const routes: Routes = [
     canActivate: [AutorizacionGuard]
   },
     // /privado/consulta/usuario
+    // a esta ruta se accede por la funcion en todolist.service
   {
     path: 'privado/consulta/:grupo_id',
       component: MistodolistComponent,
       canActivate: [AutorizacionGuard]
   },
+  {
+    path: 'privado/anadir',
+    component: AnadirComponent,
+    canActivate: [AutorizacionGuard]
+  }
 
 ];
 

@@ -34,7 +34,7 @@ export class RegistroComponent implements OnInit {
       .subscribe(
           res => {
             this.router.navigate(['/privado']);
-            console.log(res)
+            //console.log(res)
           },
           err => console.log(err)
       )

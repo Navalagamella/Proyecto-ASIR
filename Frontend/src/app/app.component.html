@@ -15,6 +15,7 @@
         IF de arriba se indica con #desconectarse-->
       <ng-template #desconectarse>
         <a (click)="loginService.desconexion()">DESCONECTARSE</a>
+        <a routerLink="/privado/anadir"> AÑADIR </a>
         <a routerLink="/privado/consulta"> CONSULTAR </a>
         <a (click)="loginService.misTareas()"> MIS TAREAS </a>
         </ng-template>

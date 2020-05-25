@@ -4,5 +4,4 @@ export interface JwtRespuestaI {
   email: string,
   accessToken: string,
   expiresIn: string
-}
-}
+}};
