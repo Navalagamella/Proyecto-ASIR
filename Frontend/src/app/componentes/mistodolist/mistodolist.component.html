@@ -22,7 +22,8 @@
             <tr *ngFor="let objeto of TodoObjeto; let i = index">
               <td>{{objeto.autor}}</td>
               <td>{{objeto.contenido}}</td>
-              <td>{{objeto.completado}}</td>
+              <td *ngIf="objeto.completado" style="background-color: yellowgreen;">{{objeto.completado}}</td>
+              <td *ngIf="!objeto.completado">{{objeto.completado}}</td>
               <td>{{objeto.publico}}</td>
               <td>
                 <a (click)="completarse(objeto)">¡Completado!</a>

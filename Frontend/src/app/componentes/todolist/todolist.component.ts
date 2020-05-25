@@ -13,7 +13,7 @@ export class TodolistComponent implements OnInit {
   public TodoObjeto:any = [];
   constructor( private todolistService: TodolistService) {this.obtenerObjetos();}
 
-  ngOnInit() { }
+  ngOnInit() { this.obtenerObjetos()}
 
   obtenerObjetos(){
     this.todolistService.consultar().subscribe((data) => {
