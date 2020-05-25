@@ -14,4 +14,6 @@ module.exports = (router) => {
   router.get('/privado/tareas/consultar/:grupo_id', todo.obtener);
   //con los : indicamos que entra con un parametro a la ruta indicada, que filtraremos para obtener los de un usuario solo
   router.get('/privado/tareas/consulta/:grupo_id', todo.obtenerSolo);
+  router.put('/privado/tareas/actualizar/:id', todo.actualizar);
+  router.delete('/privado/tareas/remove/:id', todo.eliminar);
 };

@@ -22,6 +22,7 @@ exports.anadir = (req, res, next) => {
     if (err) res.json({error: err});
     res.json({todoObjeto});
   });
+
 }
 
 //Obtener todos los registros de la todo list
@@ -44,6 +45,7 @@ exports.obtener = (req, res) => {
       return res.json( todoObjeto )
     };
   });
+
 }
 
 
@@ -57,4 +59,37 @@ exports.obtenerSolo = (req, res, next) => {
       return res.json( todoObjeto )
     };
   });
+
+}
+
+exports.actualizar = (req, res, next) => {
+
+  const nuevoObjeto = {
+    completado: req.body.completado
+  };
+  //const customid = 'ObjectId("' + req.params.id + '")'
+  //const customid = req.params.id
+  //console.log(req.params.id);
+
+  todoList.actualizar({_id: req.params.id}, nuevoObjeto, (err, todoObjeto) => {
+    if (!todoObjeto) {res.status(409).send({ message: 'Algo falla... ¿no usuario?'})}
+    else {
+      //Respuesta al frontend que haremos mediante un json
+      return res.json( todoObjeto )
+    };
+  });
+
+}
+
+exports.eliminar = (req, res) => {
+
+  todoList.borrar({_id: req.params.id}, (err, todoObjeto) => {
+    if (err) {console.log(err)}
+    if (!todoObjeto) {res.status(409).send({ message: 'Algo falla... ¿no usuario?'})}
+    else {
+      //Respuesta al frontend que haremos mediante un json
+      //return res.json( todoObjeto )
+    };
+  });
+
 }

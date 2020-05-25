@@ -12,6 +12,7 @@ import { TodolistService } from "../../servicios/todolist.service";
 export class AnadirComponent implements OnInit {
 
   objeto =  {
+    _id:'',
     autor: '',
     contenido: '',
     completado: false,
@@ -31,7 +32,7 @@ export class AnadirComponent implements OnInit {
     this.todolistService.anadir(this.objeto)
       .subscribe(
         res => {
-          console.log(this.objeto)
+          //console.log(this.objeto)
         },
         err => {
           console.log(err);

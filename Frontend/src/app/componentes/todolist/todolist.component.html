@@ -25,6 +25,9 @@
           <td>{{objeto.contenido}}</td>
           <td>{{objeto.completado}}</td>
           <td>{{objeto.publico}}</td>
+          <td>
+            <a (click)="completarse(objeto)">¡Completado!</a>
+          </td>
         </tr>
       </tbody>
     </table>

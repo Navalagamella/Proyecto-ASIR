@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 //useNewUrlParser https://mongoosejs.com/docs/connections.html
 //Otro error que sale en consola
 //https://github.com/strongloop/loopback-connector-mongodb/issues/540
-mongoose.connect('mongodb://localhost/proyecto', { useNewUrlParser: true, useUnifiedTopology:true })
+mongoose.connect('mongodb://localhost/proyecto', { userFindAndModify: true, useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology:true })
 //Vamos a programar una alerta que nos informe si se ha conectado con éxito a la BD
 //https://mongoosejs.com/docs/connections.html
   .catch(err => { console.log('************************'),

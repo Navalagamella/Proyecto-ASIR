@@ -51,3 +51,8 @@ body {
 .login p {
   padding: 12px;
 }
+
+td a {
+  margin-right: 1em;
+  margin-left: 1em;
+}

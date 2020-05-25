@@ -13,8 +13,11 @@ const todoList_Esquema = require('./app.modelo.js');
    obtener: function (query, cb) {
      this.find(query, cb);
    },
+   actualizar: function (query, updateData, cb) {
+    this.findByIdAndUpdate(query, {$set: updateData}, {new: true}, cb);
+  },
    borrar: function (query, cb) {
-     this.find(query, cb);
+     this.findByIdAndDelete(query, cb);
    }
  };
 

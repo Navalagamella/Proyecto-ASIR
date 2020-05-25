@@ -22,4 +22,19 @@ export class TodolistComponent implements OnInit {
     } )
   }
 
+  completarse(objeto){
+    objeto.completado = !objeto.completado;
+    //console.log(objeto.completado);
+    this.todolistService.actualizacion(objeto).subscribe((data) => {
+      //this.TodoObjeto = data;
+      //console.log(this.TodoObjeto);
+    })
+  }
+
+  borrarse(objeto){
+    this.todolistService.borracion(objeto).subscribe((data) => {
+      //this.TodoObjeto = data;
+      //console.log(this.TodoObjeto);
+    })
+  }
 }

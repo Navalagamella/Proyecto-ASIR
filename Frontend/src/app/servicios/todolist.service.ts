@@ -34,10 +34,17 @@ export class TodolistService {
         (res: TodoRespuestaI) => {
         //y realiza algo si hay respuesta
           if (res) {
-            console.log(objeto);
+            //console.log(objeto);
           }
         })
       );
   }
+  
+  actualizacion(objeto){
+    return this.http.put(this.URL + 'actualizar/' + objeto._id, objeto)
+  }
 
+  borracion(objeto){
+    return this.http.delete(this.URL + 'remove/' + objeto._id, objeto)
+  }
 }
