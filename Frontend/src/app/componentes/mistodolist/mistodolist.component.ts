@@ -37,5 +37,8 @@ export class MistodolistComponent implements OnInit {
       //this.TodoObjeto = data;
       //console.log(this.TodoObjeto);
     })
+    this.obtenerObjetos();
   }
+
+
 }

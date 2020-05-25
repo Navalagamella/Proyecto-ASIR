@@ -56,3 +56,20 @@ td a {
   margin-right: 1em;
   margin-left: 1em;
 }
+thead {
+  display: table-header-group;
+}
+thead th {
+ width: 100%;
+}
+thead tr:hover, tbody tr:hover {
+  background-color: lightgray;
+}
+table {
+  margin: auto;
+}
+table td {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}

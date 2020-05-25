@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from "@angular/router";
 //importamos el servicio que hemos creado para la todo list con ng c s
 import { TodolistService } from "../../servicios/todolist.service";
 //import { TodoObjetoI } from "../../interfaces/todo-objeto";
@@ -19,7 +19,8 @@ export class AnadirComponent implements OnInit {
     publico: false,
     grupo_id: sessionStorage.getItem('GRUPO_ID')
   }
-  constructor(private todolistService: TodolistService) { }
+  constructor(private todolistService: TodolistService, private router: Router) { }
+  private miGrupo_id = sessionStorage.getItem("GRUPO_ID");
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class AnadirComponent implements OnInit {
     this.todolistService.anadir(this.objeto)
       .subscribe(
         res => {
+          this.router.navigate(['privado/consulta/' + this.miGrupo_id]);
           //console.log(this.objeto)
         },
         err => {

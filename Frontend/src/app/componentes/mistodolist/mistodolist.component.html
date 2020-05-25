@@ -11,16 +11,15 @@
         <table class="login-container" *ngIf="TodoObjeto.length > 0">
           <thead>
             <tr>
-              <th>Grupo</th>
-              <th>Nombre</th>
+              <th style="width: 25%;">Autor</th>
               <th>Contenido</th>
               <th>Completado</th>
               <th>Publico</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let objeto of TodoObjeto; let i = index">
-              <td>{{objeto.grupo_id}}</td>
               <td>{{objeto.autor}}</td>
               <td>{{objeto.contenido}}</td>
               <td>{{objeto.completado}}</td>
