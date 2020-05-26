@@ -30,7 +30,7 @@ app.use(express.json());
   var router = express.Router();
 
   //Importamos las rutas de ./login/login.rutas.js
-  const loginRutas = require('./login/login.rutas.js');
+  const loginRutas = require('./login/login/login.rutas.js');
 
   //Creamos la ruta por defecto que es /
   //https://expressjs.com/es/api.html#router.METHOD
@@ -52,4 +52,4 @@ app.listen(3000, function () {
 
 
 //Importamos la conexion con la BD
-const DB = require('./configuracion/db.js');
+const DB = require('./login/configuracion/db.js');
